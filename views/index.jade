@@ -4,10 +4,19 @@ block content
   h1= title
   p Welcome to #{title}
    if user
-      p Hello #{user.displayName} 
+      p Hello #{user.displayName}   
       img(src='#{user.avatar}' height="102" width="102")
       br
       a(href="/logout") Logout
+      div
+        h1 All Your Repos
+        p.repos(data-repos='#{user.repos}')
     else
       p
         a(href="/auth/github") Login
+
+
+
+
+
+  script(src="/javascripts/script.js")

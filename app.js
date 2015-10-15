@@ -54,7 +54,9 @@ passport.use(new GitHubStrategy({
     scope: ['user','public_repo']
   },
   function(accessToken, refreshToken, profile, done) {
-      return done(null, {id:profile.id, displayName: profile.displayName, avatar: profile._json.avatar_url});
+    console.log(profile._json.repos_url)
+      return done(null, {id:profile.id, displayName: profile.displayName, avatar: profile._json.avatar_url, repos: profile._json.repos_url});
+  
   }));
 
 
